@@ -1,0 +1,432 @@
+*{
+margin: 0;
+padding: 0;
+font-family: 'Courier New', Courier, monospace;
+}
+body{
+    background-image: url('../img/Quiz-bk.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.area-start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #000;
+    transition: all ease 1s;
+    position: absolute;
+}
+.start{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px; 
+}
+.start h1{
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+.img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    box-shadow: 0 -15px 10px #FFDF00,
+    inset 0 -10px 15px rgba(0, 0, 0, 0.3),
+    0 15px 10px #FFDF00,
+    inset  0 15px 15px rgba(0,0, 0, 0.3);
+    transform: translateY(0px);
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%{ transform: translateY(0px);}
+    50%{ transform: translateY(-20px);}
+    0%{ transform: translateY(0px);}
+}
+
+img{
+  width: 200px;
+}
+.txt{
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+.button button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: #333;
+    background-color: #fff;
+    box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.3),
+                inset  0 15px 15px rgba(0,0, 0, 0.3);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 999;   
+}
+.button button::before {
+    position: absolute;
+    background-color: #F4CB0B;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: all ease .5s;
+    color: #FFF;
+    border-radius: 10px;
+}
+.button button:hover{
+    color: #fff;
+    box-shadow: 0px 0px 15px #ddd,
+                0px 10px 15px #777;
+}
+.button button:hover::before{
+    width: 100%; 
+}
+/* parte 2*/
+.area-quiz{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('/assets/img/javascript.png');
+    background-position: center;
+    background-size: cover;
+    color: #FFf; 
+    transition: all ease 1s; 
+    opacity: 0;
+}
+.area-bar{
+    top: 0;
+    width: 100%;
+    height: 15px;
+}
+.bar{
+    background-color: #1c770d;
+    width: 50%;
+    height: inherit;
+    transition: all ease 1s ;
+    
+}
+.area-question-txt{
+    width: 100%;
+}
+.txt{
+    padding: 10px 0 0 20px;
+    font-size: 25px;
+}
+.txt span{
+    color: #1c770d;
+}
+.area-time{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.time{
+    position: absolute;
+}
+svg{
+    width: 90px;
+    height: 90px;
+    position: relative;
+}
+circle{
+    width: 90px;
+    height: 90px;
+    fill:none;
+    stroke: #000;
+    stroke-width:6;
+    transform: translate(-15px,-15px);
+    stroke-dasharray:189;
+    
+}
+circle:nth-child(1){
+    stroke-dashoffset: 0;
+    stroke: transparent;
+}
+circle:nth-child(2){
+    stroke-dashoffset: 0;
+    stroke: #0b3cbf;
+}
+.time{
+    font-size: 25px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.slider{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.area-question{
+    width: 620px;
+    font-size: 22px;
+    font-weight: 600;
+    background-color: #d7d7d7;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0px 20px;
+    border-radius: 10px;
+    box-shadow: #000 0 0 10px;
+    color: #000;
+    box-sizing: border-box;
+    transition: all ease 1s ;
+}
+.question{
+    padding-bottom: 18px;
+}
+.area-answer{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 12px;
+    width: 100%;
+}
+.answer{
+    box-shadow: #000 0 0 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease;
+}
+.answer:hover{
+    background-color: #0b3cbf;
+    color: #FFF;
+}
+.active{
+    background-color: #0b3cbf;
+    color: #FFF;
+}
+.answer span{
+    padding: 4px 8px;
+    color: #FFF;
+    border-radius: 50%;
+    background-color: #0b3cbf;
+    margin-right: 7px;
+}
+.button-question{
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+}
+.button-question button{
+    margin-left: auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: #000 0 0 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+    transition: all ease ;
+}
+.button-question button::before {
+    position: absolute;
+    background-color: #F4CB0B;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: all ease .5s;
+    color: #FFF;
+    border-radius: 10px;
+}
+.button-question button:hover{
+    color: #FFF;
+}
+.button-question button:hover::before{
+    width: 100%; 
+}
+
+/* parte 3 */
+.area-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #F4CB0B;
+}
+.info{
+    width: 450px;
+    font-size: 25px;
+    font-weight: 600;
+    background-color: #d7d7d7;
+    padding: 30px 15px;
+    border-radius: 10px;
+    box-shadow: #000 0 0 10px;
+    color: #000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    transition: all ease 1s ;
+}
+.img-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0px);
+    animation: float 5s ease-in-out infinite;
+    border-radius: 50%;
+}
+.img-info img{
+    width: 100px;
+} 
+.area-txt{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 600;
+    gap: 10px;
+}
+.hit{
+    font-size: 35px;
+    color: #FF8C00;
+}
+.msg-2{
+    font-size: 16px;
+}
+
+.button-info button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: #333;
+    background-color: #fff;
+    box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.3),
+                inset  0 15px 15px rgba(0,0, 0, 0.3);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 999;   
+    transition: all ease ;
+}
+.button-info button::before {
+    position: absolute;
+    background-color: #F4CB0B;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: all ease .5s;
+    color: #FFF;
+    border-radius: 10px;
+}
+.button-info button:hover{
+    color: #fff;
+}
+.button-info button:hover::before{
+    width: 100%; 
+}
+
+@media (max-width:1030px){
+    .img{
+        width: 250px;
+        height: 250px;
+    }
+    .img img{
+        width: 180px;
+    }
+
+}
+
+@media (max-width:800px){
+    .img{
+        width: 200px;
+        height: 200px;
+    }
+    .img img{
+        width: 150px;
+    }
+    .txt{
+        font-size: 20px;
+    }
+    .start h1{
+        padding-bottom: 20px;
+    }
+    .start{
+        gap: 20px;
+    }
+}
+@media (max-width:640px){
+    .img{
+        width: 150px;
+        height: 150px;
+    }
+    .img img{
+        width: 120px;
+    }
+    .txt{
+        font-size: 16px;
+        padding: 0;
+    }
+    .start h1{
+        font-size: 28px;
+    }
+    .start{
+        gap: 15px;
+        width: 100%;
+    }
+    .button button{
+        font-size: 16px;
+    }
+    .area-question{
+        width: 96%;
+        font-size: 17px;
+        padding: 0 15px;
+    }
+    .info{
+        width: 80%;
+    }
+    .hit{
+        font-size: 30px;
+        padding: 10px 0;
+    }
+    .msg-2{
+        font-size: 14px;
+    }
+    .button-info button{
+        font-size: 17px;
+    }
+}
