@@ -372,6 +372,9 @@ circle:nth-child(2){
 }
 
 @media (max-width:800px){
+    .area-start{
+        overflow: visible;
+    }
     .img{
         width: 200px;
         height: 200px;
